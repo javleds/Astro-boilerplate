@@ -1,0 +1,10 @@
+---
+import AppLayout from '../layouts/app-layout.astro';
+import { config } from '../utils/config';
+
+const { title } = config;
+const { description } = config;
+---
+<AppLayout head={{ title, description }}>
+    <h1>Hello world</h1>
+</AppLayout>@/utils/config

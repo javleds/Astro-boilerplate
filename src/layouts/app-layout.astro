@@ -1,18 +1,11 @@
 ---
-import { Footer } from '@/partials/Footer';
-import { Navbar } from '@/partials/Navbar';
-import { AppConfig } from '@/utils/AppConfig';
-
-export interface Props {
-  head: {
-    title: string;
-    description: string;
-  };
-}
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import { config } from '../utils/config';
 
 const {
   head: { title, description },
-} = Astro.props as Props;
+} = Astro.props;
 ---
 
 <html lang='en'>
@@ -21,16 +14,14 @@ const {
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>{title}</title>
     <meta name='description' content={description} />
-    <meta name='author' content={AppConfig.author} />
+    <meta name='author' content={config.author} />
 
     <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
   </head>
   <body class='bg-slate-900 text-gray-100'>
     <Navbar />
-
     <slot></slot>
-
     <Footer />
   </body>
 </html>

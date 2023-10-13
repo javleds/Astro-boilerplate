@@ -1,0 +1,34 @@
+---
+import AppLayout from './app-layout.astro';
+import Newsletter from '../components/newsletter.astro';
+
+import { config } from '../utils/config';
+import { beautifulDate, getUrl } from '../utils/posts';
+
+const { frontmatter } = Astro.props;
+const title = `${frontmatter.title} - ${config.site_name}`;
+---
+
+<AppLayout head={{ title, description: frontmatter.description }}>
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <h1 class="text-center text-3xl font-bold">
+      {frontmatter.title}
+    </h1>
+    <div class="mt-2 text-center text-sm text-gray-400">
+      Por {config.author}, el {beautifulDate(frontmatter.publishedAt)}
+    </div>
+  
+  
+    <div class="mx-auto mt-5 max-w-prose">
+      <div class="aspect-w-3 aspect-h-2">
+        <img class="h-full w-full rounded-lg object-cover object-center" src={frontmatter.imageSource} alt={frontmatter.imageAlt} loading="lazy" />
+      </div>
+  
+      <div class="prose prose-invert mt-8 prose-img:rounded-lg">
+        <slot />
+      </div>
+    </div>
+  </div>
+
+  <Newsletter />
+</AppLayout>

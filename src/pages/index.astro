@@ -1,25 +1,24 @@
 ---
-import type { IFrontmatter } from 'astro-boilerplate-components';
+import AppLayout from '../layouts/app-layout.astro';
 
-import { CTA } from '@/partials/CTA';
-import { Hero } from '@/partials/Hero';
-import { ProjectList } from '@/partials/ProjectList';
-import { RecentPosts } from '@/partials/RecentPosts';
-import Base from '@/templates/Base.astro';
-import { AppConfig } from '@/utils/AppConfig';
-import { sortByDate } from '@/utils/Posts';
+import Hero from '../components/hero.astro';
+import Portfolio from '../components/portfolio.astro';
+import RecentPosts from '../components/recent-posts.astro';
+import Newsletter from '../components/newsletter.astro';
 
-const allPosts = await Astro.glob<IFrontmatter>('./posts/*.md');
-const sortedPosts = sortByDate(allPosts);
-const lastThreePosts = sortedPosts.slice(0, 3);
+import { config } from '../utils/config';
+import { sortByDate } from '../utils/posts';
 
-const { title } = AppConfig;
-const { description } = AppConfig;
+const allPosts = await Astro.glob('./blog/*.md');
+const lastPosts = sortByDate(allPosts).slice(0, 3);
+
+const { title } = config;
+const { description } = config;
 ---
 
-<Base head={{ title, description }}>
+<AppLayout head={{ title, description }}>
   <Hero />
-  <ProjectList />
-  <RecentPosts postList={lastThreePosts} />
-  <CTA />
-</Base>
+  <Portfolio />
+  <RecentPosts posts={lastPosts} />
+  <Newsletter />
+</AppLayout>
