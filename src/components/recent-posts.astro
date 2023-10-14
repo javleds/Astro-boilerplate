@@ -4,8 +4,8 @@ import PostCard from './post-card.astro';
 const { posts } = Astro.props;
 ---
 
-<div class="mx-auto max-w-screen-lg px-3 py-6">
-  <div class="mb-6 text-2xl font-bold">
+<section class="py-6">
+  <header class="mb-6 text-2xl font-bold">
     <div class="flex items-baseline justify-between">
       <div>
         Recent 
@@ -17,8 +17,9 @@ const { posts } = Astro.props;
         <a href="/posts/">View all Posts →</a>
       </div>
     </div>
-  </div>
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+  </header>
+
+  <section class="grid grid-cols-1 gap-6 md:grid-cols-3">
     {posts.map(post => <PostCard post={post} />)}
-  </div>
-</div>
+  </section>
+</section>

@@ -20,8 +20,12 @@ const {
     <link rel='icon' type='image/x-icon' href='/favicon.ico' />
   </head>
   <body class='bg-slate-900 text-gray-100'>
-    <Navbar />
-    <slot></slot>
-    <Footer />
+    <section  class="mx-auto max-w-screen-lg px-3 py-6">
+      <Navbar />
+      <main>
+        <slot></slot>
+      </main>
+      <Footer />
+    </section>
   </body>
 </html>
