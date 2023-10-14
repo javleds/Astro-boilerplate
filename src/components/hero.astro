@@ -1,29 +1,34 @@
 ---
+import { Image } from 'astro:assets';
+
+import avatar from '../assets/avatar.png';
+import twitter from '../assets/twitter-icon.png';
+import linkedin from '../assets/linkedin-icon.png';
 ---
-<section class="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24 py-6">
+<section class="flex flex-col md:flex-row md:justify-between md:gap-x-24 py-6 mt-6">
+  <div class="shrink-0">
+    <Image src={avatar} alt="Avatar image" loading="lazy" width={170} style="filter: drop-shadow(0 0 0.75rem #16b8eb);">
+  </div>
   <div>
     <h1 class="text-3xl font-bold">
-      Hi there, I'm <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Ixartz</span>
+      ¡Hola, <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">mundo!</span>
     </h1>
-    <p class="mt-6 text-xl leading-9">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus<!-- --> <a class="text-cyan-400 hover:underline" href="/">malesuada</a> <!-- -->nisi tellus, non imperdiet nisi tempor at. Lorem ipsum dolor sit amet,<!-- --> <a class="text-cyan-400 hover:underline" href="/">consectetur</a> <!-- -->adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-    </p>
+    <section class="mt-6 text-xl leading-9">
+      <p>
+        Mi nombre es Javier, ingeniero de software con {(new Date()).getFullYear() - 2013} años de experiencia desarrollando backend, frontend e infraestructura.
+      </p>
+      <p class="mt-6">
+        Con gran gusto a proyectos open source, la colaboración en equipos de desarollo y las buenas prácticas que hacen que leer código sea una excelente experiencia.
+      </p>
+    </section>
+    
     <div class="mt-3 flex gap-1">
       <a href="/">
-        <img class="h-12 w-12 hover:translate-y-1" src="/assets/images/twitter-icon.png" alt="Twitter icon" loading="lazy">
+        <Image class="h-12 w-12 hover:translate-y-1" src={twitter} alt="Twitter icon" loading="lazy" />
       </a>
       <a href="/">
-        <img class="h-12 w-12 hover:translate-y-1" src="/assets/images/facebook-icon.png" alt="Facebook icon" loading="lazy">
-      </a>
-      <a href="/">
-        <img class="h-12 w-12 hover:translate-y-1" src="/assets/images/linkedin-icon.png" alt="Linkedin icon" loading="lazy">
-      </a>
-      <a href="/">
-        <img class="h-12 w-12 hover:translate-y-1" src="/assets/images/youtube-icon.png" alt="Youtube icon" loading="lazy">
+        <Image class="h-12 w-12 hover:translate-y-1" src={linkedin} alt="Linkedin icon" loading="lazy">
       </a>
     </div>
-  </div>
-  <div class="shrink-0">
-    <img class="h-80 w-64" src="/assets/images/avatar.svg" alt="Avatar image" loading="lazy">
   </div>
 </section>
