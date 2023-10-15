@@ -1,13 +1,13 @@
 ---
-import AppLayout from '../layouts/app-layout.astro';
+import AppLayout from '@/layouts/app-layout.astro';
 
-import Hero from '../components/home/hero.astro';
-import Portfolio from '../components/home/portfolio.astro';
-import RecentPosts from '../components/home/recent-posts.astro';
-import Newsletter from '../components/newsletter.astro';
+import Hero from '@/components/home/hero.astro';
+import Portfolio from '@/components/home/portfolio.astro';
+import RecentPosts from '@/components/home/recent-posts.astro';
+import Newsletter from '@/components/newsletter.astro';
 
-import { config } from '../utils/config';
-import { sortByDate } from '../utils/posts';
+import { config } from '@/utils/config';
+import { sortByDate } from '@/utils/posts';
 
 const allPosts = await Astro.glob('./blog/*.md');
 const lastPosts = sortByDate(allPosts).slice(0, 3);
