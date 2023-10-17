@@ -7,24 +7,26 @@ import { config } from '@/utils/config';
 import logo from '@/assets/logo.svg';
 ---
 
-<nav class="flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between">
-  <a href={routes.home}>
-    <div class="flex items-center bg-gradient-to-br bg-clip-text text-xl font-bold">
-      <Image src={logo} alt="jaleds logo" height={50} class="mr-3" />
-      javleds
-    </div>
-  </a>
-  <nav>
-    <ul class="flex gap-x-3 font-medium text-gray-200">
-      <li class="hover:text-white">
-        <a href={routes.blog}>Blog</a>
-      </li>
-      <li class="hover:text-white">
-        <a href={config.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-      </li>
-      <li class="hover:text-white">
-        <a href={config.social.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
-      </li>
-    </ul>
-  </nav>
+<nav class="sticky top-0 bg-slate-900 z-10">
+  <section class="py-6 flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between">
+    <a href={routes.home}>
+      <div class="flex items-center bg-gradient-to-br bg-clip-text text-xl font-bold">
+        <Image src={logo} alt="jaleds logo" height={50} class="mr-3" />
+        javleds
+      </div>
+    </a>
+    <nav>
+      <ul class="flex gap-x-3 font-medium text-gray-200">
+        <li class="hover:text-white">
+          <a href={routes.blog}>Blog</a>
+        </li>
+        <li class="hover:text-white">
+          <a href={config.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+        <li class="hover:text-white">
+          <a href={config.social.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
 </nav>

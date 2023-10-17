@@ -9,7 +9,7 @@ export default defineConfig({
   site: appUrl,
   markdown: {
     shikiConfig: {
-      theme: 'monokai',
+      theme: 'material-theme-palenight',
     },
   },
   integrations: [
