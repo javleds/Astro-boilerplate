@@ -6,7 +6,6 @@ import AppLayout from '@/layouts/app-layout.astro';
 import Hero from '@/components/home/hero.astro';
 import ResourceCollection from '@/components/home/resource-collection.astro';
 import RecentPosts from '@/components/home/recent-posts.astro';
-import Newsletter from '@/components/newsletter.astro';
 
 import { config } from '@/utils/config';
 import { availableCollections } from '@/content/config';
@@ -26,5 +25,4 @@ const resources = (await getCollection(availableCollections.resources))
   <Hero title="¡Hola," highlight="mundo!" />
   <ResourceCollection title="Últimos" titleHighlight="recursos" entries={resources} />
   <RecentPosts title="Últimas" highlight="publicaciones" posts={posts} />
-  <Newsletter />
 </AppLayout>
