@@ -1,10 +1,14 @@
 ---
-layout: '../../layouts/blog-layout.astro'
 title: Typography example
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi.
 publishedAt: 2020-02-06T00:00:00Z
-imageSource: '/assets/images/image-post.jpeg'
-imageAlt: 'Image post'
+image:
+  src: '/assets/images/image-post.jpeg'
+  alt: 'Image post'
+slug: post-6
+author: 'Javier Ledezma'
+tags:
+  - fake
 ---
 
 This is a paragraph. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi, inventore atque cupiditate. Sed voluptatem quas omnis culpa, et odit.

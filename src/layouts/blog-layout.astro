@@ -1,12 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+
 import AppLayout from './app-layout.astro';
 import Newsletter from '../components/newsletter.astro';
 
 import { config } from '../utils/config';
-import { beautifulDate, getUrl } from '../utils/posts';
 
 const { frontmatter } = Astro.props;
-const title = `${frontmatter.title} - ${config.site_name}`;
+const title = `${frontmatter.title} - ${config.siteName}`;
 ---
 
 <AppLayout head={{ title, description: frontmatter.description }}>
@@ -15,13 +16,13 @@ const title = `${frontmatter.title} - ${config.site_name}`;
       {frontmatter.title}
     </h1>
     <div class="mt-2 text-center text-sm text-gray-400">
-      Por {config.author}, el {beautifulDate(frontmatter.publishedAt)}
+      Por {config.author}, el {frontmatter.publishedAt}
     </div>
   
   
     <div class="mx-auto mt-5 max-w-prose">
       <div class="aspect-w-3 aspect-h-2">
-        <img class="h-full w-full rounded-lg object-cover object-center" src={frontmatter.imageSource} alt={frontmatter.imageAlt} loading="lazy" />
+        <Image class="h-full w-full rounded-lg object-cover object-center" src={frontmatter.image.src} alt={frontmatter.image.alt} loading="lazy" width={720} height={300} />
       </div>
   
       <div class="prose prose-invert mt-8 prose-img:rounded-lg">

@@ -8,5 +8,6 @@ export const config = {
   social: {
     github: 'https://github.com/javleds',
     twitter: 'https://twitter.com/javleds',
-  }
+  },
+  recentPostsToShow: 3,
 };

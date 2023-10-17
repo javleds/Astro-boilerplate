@@ -1,18 +1,8 @@
-import { formatRelative } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { Post } from "../models/post";
 
-export function sortByDate(posts) {
+export function sortByDate(posts: Post[]) {
   return posts.sort(
     (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
+      b.publishedAt.valueOf() - a.publishedAt.valueOf()
   );
-}
-
-export function beautifulDate (date) {
-  return formatRelative(new Date(date), new Date(), { locale: es });
-}
-
-export function getUrl(url) {
-  return '/posts' + url;
 }

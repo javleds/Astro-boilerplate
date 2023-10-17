@@ -4,6 +4,8 @@ import { Image } from 'astro:assets';
 import avatar from '@/assets/avatar.png';
 import twitter from '@/assets/twitter-icon.png';
 import linkedin from '@/assets/linkedin-icon.png';
+
+const experience = (new Date()).getFullYear() - 2013;
 ---
 <section class="flex flex-col md:flex-row md:justify-between md:gap-x-24 py-6 mt-6">
   <div class="shrink-0">
@@ -15,7 +17,7 @@ import linkedin from '@/assets/linkedin-icon.png';
     </h1>
     <section class="mt-6 text-xl leading-9">
       <p>
-        Mi nombre es Javier, ingeniero de software con {(new Date()).getFullYear() - 2013} años de experiencia desarrollando backend, frontend e infraestructura.
+        Mi nombre es Javier, ingeniero de software con {experience} años de experiencia desarrollando backend, frontend e infraestructura.
       </p>
       <p class="mt-6">
         Con gran gusto a proyectos open source, la colaboración en equipos de desarollo y las buenas prácticas que hacen que leer código sea una excelente experiencia.

@@ -1,13 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
+
 import AppLayout from '@/layouts/app-layout.astro';
 import PostCard from '@/components/blog/post-card.astro';
 
-import { sortByDate } from '@/utils/posts';
+import { all } from '@/repositories/posts';
 import { config } from '@/utils/config';
+import { availableCollections } from '@/content/config';
 
-const { title } = config;
-const { description } = config;
-const posts = sortByDate(await Astro.glob('./*.md')).slice(0, 20);
+const { title, description} = config;
+
+const posts = (await getCollection(availableCollections.blog))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 ---
 <AppLayout head={{ title, description }}>
   <div class="mx-auto max-w-screen-lg px-3 py-6">
@@ -32,4 +36,4 @@ const posts = sortByDate(await Astro.glob('./*.md')).slice(0, 20);
       </a>
     </div>
   </div>
-</AppLayout>../utils/config
+</AppLayout>

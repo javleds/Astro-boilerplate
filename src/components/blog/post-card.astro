@@ -2,20 +2,20 @@
 const { post } = Astro.props;
 ---
 
-<a class="hover:translate-y-1" href={post.url}>
+<a class="hover:translate-y-1" href={'/posts/' + post.slug}>
   <div class="overflow-hidden rounded-md bg-slate-800">
     <div class="aspect-w-3 aspect-h-2">
-      <img class="h-full w-full object-cover object-center" src={post.frontmatter.imageSource} alt={post.frontmatter.imageAlt} loading="lazy">
+      <img class="h-full w-full object-cover object-center" src={post.data.image.src} alt={post.data.image.alt} loading="lazy">
     </div>
     <div class="px-3 pt-4 pb-6 text-center">
       <h2 class="text-xl font-semibold">
-        {post.frontmatter.title}
+        {post.data.title}
       </h2>
       <div class="mt-1 text-xs text-gray-400">
-        {(new Date(post.frontmatter.publishedAt)).toLocaleDateString()}
+        {post.data.publishedAt.toString().slice(0, 10)}
       </div>
       <div class="mt-2 text-sm">
-        {post.frontmatter.description}
+        {post.description}
       </div>
     </div>
   </div>

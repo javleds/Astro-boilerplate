@@ -6,7 +6,7 @@ export const get = () =>
   rss({
     title: config.title,
     description: config.description,
-    site: import.meta.env.SITE,
+    site: config.siteName,
     items: import.meta.glob('./**/*.md'),
     customData: `<language>es-mx</language>`,
   });
