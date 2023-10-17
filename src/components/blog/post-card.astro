@@ -1,9 +1,12 @@
 ---
 import { format } from '@/utils/dates';
+
+import { routes } from '@/utils/routes';
+
 const { post } = Astro.props;
 ---
 
-<a class="hover:shadow-md hover:shadow-slate-950 hover:duration-75 transition-shadow" href={'/posts/' + post.slug}>
+<a class="hover:shadow-md hover:shadow-slate-950 hover:duration-75 transition-shadow" href={routes.blog + '/' + post.slug}>
   <div class="overflow-hidden rounded-md bg-slate-800">
     <div class="aspect-w-3 aspect-h-2">
       <img class="h-full w-full object-cover object-center" src={post.data.image.src} alt={post.data.image.alt} loading="lazy">
