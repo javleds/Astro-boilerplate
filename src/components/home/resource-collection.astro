@@ -1,19 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-
-import { randomBetween } from '@/utils/numbers'
-
 import ResourceEntry from '@/components/resource-entry.astro';
+import Highlight from '@/components/highlight.astro';
 
 const { entries, title, titleHighlight  } = Astro.props;
 ---
 
 <section class="py-6">
   <header class="mb-6 text-2xl font-bold">
-    {title + ' '} 
-    <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">
-      {titleHighlight}
-    </span>
+    {title + ' '}
+    <Highlight>{titleHighlight}</Highlight>
   </header>
   
   <section class="flex flex-col gap-6">

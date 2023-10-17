@@ -2,18 +2,17 @@
 import PostCard from '@/components/blog/post-card.astro';
 
 import { routes } from '@/utils/routes';
+import Highlight from '../highlight.astro';
 
-const { posts } = Astro.props;
+const { posts, title, highlight } = Astro.props;
 ---
 
 <section class="py-6">
   <header class="mb-6 text-2xl font-bold">
     <div class="flex items-baseline justify-between">
       <div>
-        Recent 
-        <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">
-          Posts
-        </span>
+        {title + ' '}
+        <Highlight>{ highlight }</Highlight> 
       </div>
       <div class="text-sm">
         <a href={routes.blog}>View all Posts →</a>

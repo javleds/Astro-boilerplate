@@ -17,19 +17,14 @@ const posts = (await getCollection(availableCollections.blog))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 3);
 
-const projects = (await getCollection(availableCollections.projects))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
-  .slice(0, 3);
-
 const resources = (await getCollection(availableCollections.resources))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 3);
 ---
 
 <AppLayout head={{ title, description }}>
-  <Hero />
-  <ResourceCollection title="Recent" titleHighlight="projects" entries={projects} />
-  <ResourceCollection title="Recent" titleHighlight="resources" entries={resources} />
-  <RecentPosts posts={posts} />
+  <Hero title="¡Hola," highlight="mundo!" />
+  <ResourceCollection title="Últimos" titleHighlight="recursos" entries={resources} />
+  <RecentPosts title="Últimas" highlight="publicaciones" posts={posts} />
   <Newsletter />
 </AppLayout>
