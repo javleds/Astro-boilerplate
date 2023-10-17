@@ -1,4 +1,36 @@
 ---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+import { randomBetween } from '@/utils/numbers'
+
+const { projects } = Astro.props;
+
+const tagClasses = [
+  'rounded-md',
+  'px-2',
+  'py-1',
+  'text-xs',
+  'font-semibold',
+];
+
+const tagColors = [
+  ['bg-fuchsia-400', 'text-fuchsia-900'],
+  ['bg-lime-400', 'text-lime-900'],
+  ['bg-sky-400', 'text-sky-900'],
+  ['bg-rose-400', 'text-rose-900'],
+];
+
+const tagMap: {[key: string]: string[]} = {};
+
+[...new Set(projects.map((project: CollectionEntry<'projects'>) => project.data.tags).flat())]
+  .forEach((tag) => {
+    tagMap[tag] = [...tagClasses, ...tagColors[randomBetween(0, tagColors.length -1)]]
+  });
+
+console.log(tagMap);
+
+
 ---
 
 <section class="py-6">
@@ -10,69 +42,34 @@
   </header>
   
   <section class="flex flex-col gap-6">
-    <div class="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row">
+    {projects.map(project => (
+      <div class="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row hover:shadow-md hover:shadow-slate-950 hover:duration-75 transition-shadow">
       <div class="shrink-0">
-        <a href="/">
-          <img class="h-36 w-36 hover:translate-y-1" src="/assets/images/project-web-design.png" alt="Project Web Design" loading="lazy">
+        <a href="#">
+          <Image src={project.data.image.src} alt={project.data.image.alt} loading="lazy" width={90} height={90} />
         </a>
       </div>
       <div>
         <div class="flex flex-col items-center gap-y-2 md:flex-row">
           <a class="hover:text-cyan-400" href="/">
             <div class="text-xl font-semibold">
-              Project 1
+              {project.data.title}
             </div>
           </a>
           <div class="ml-3 flex gap-2">
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-fuchsia-400 text-fuchsia-900">
-              Astro.js
+            {project.data.tags.map(tag => (
+              <div class:list={tagMap[tag]}>
+              { tag }
             </div>
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-lime-400 text-lime-900">
-              Web design
-            </div>
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-sky-400 text-sky-900">
-              Tailwind.css
-            </div>
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-rose-400 text-rose-900">
-              TypeScript
-            </div>
+            ))}
           </div>
         </div>
         <p class="mt-3 text-gray-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.
+          {project.data.description}
         </p>
       </div>
     </div>
-    <div class="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row">
-      <div class="shrink-0">
-        <a href="/">
-          <img class="h-36 w-36 hover:translate-y-1" src="/assets/images/project-fire.png" alt="Project Fire" loading="lazy">
-        </a>
-      </div>
-      <div>
-        <div class="flex flex-col items-center gap-y-2 md:flex-row">
-          <a class="hover:text-cyan-400" href="/">
-            <div class="text-xl font-semibold">
-              Project 2
-            </div>
-          </a>
-          <div class="ml-3 flex gap-2">
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-violet-400 text-violet-900">
-              Next.js
-            </div>
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-emerald-400 text-emerald-900">
-              Blog
-            </div>
-            <div class="rounded-md px-2 py-1 text-xs font-semibold bg-yellow-400 text-yellow-900">
-              JavaScript
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 text-gray-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.</p></div></div><div class="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row"><div class="shrink-0"><a href="/"><img class="h-36 w-36 hover:translate-y-1" src="/assets/images/project-maps.png" alt="Project Maps" loading="lazy"></a></div><div><div class="flex flex-col items-center gap-y-2 md:flex-row"><a class="hover:text-cyan-400" href="/"><div class="text-xl font-semibold">Project 3</div></a><div class="ml-3 flex gap-2"><div class="rounded-md px-2 py-1 text-xs font-semibold bg-fuchsia-400 text-fuchsia-900">Astro.js</div><div class="rounded-md px-2 py-1 text-xs font-semibold bg-indigo-400 text-indigo-900">Bootstrap</div><div class="rounded-md px-2 py-1 text-xs font-semibold bg-rose-400 text-rose-900">TypeScript</div></div></div><p class="mt-3 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.
-        </p>
-      </div>
-    </div>
+    ))}
   </section>
 
 

@@ -1,0 +1,12 @@
+title: Project 1
+description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi.
+publishedAt: 2020-02-05T00:00:00Z
+image:
+  src: '/assets/images/project-fire.png'
+  alt: 'project-fire.png'
+slug: project-2
+author: 'Javier Ledezma'
+tags:
+  - Next.js
+  - Blog
+  - JavaScript

@@ -1,0 +1,13 @@
+title: Project 1
+description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi.
+publishedAt: 2020-02-05T00:00:00Z
+image:
+  src: '/assets/images/project-web-design.png'
+  alt: 'project-web-design.png'
+slug: project-1
+author: 'Javier Ledezma'
+tags:
+  - Astro.js
+  - Web design
+  - Tailwindcss
+  - TypeScript
