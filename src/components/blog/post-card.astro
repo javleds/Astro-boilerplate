@@ -1,8 +1,9 @@
 ---
+import { format } from '@/utils/dates';
 const { post } = Astro.props;
 ---
 
-<a class="hover:translate-y-1" href={'/posts/' + post.slug}>
+<a class="hover:shadow-md hover:shadow-slate-950 hover:duration-75 transition-shadow" href={'/posts/' + post.slug}>
   <div class="overflow-hidden rounded-md bg-slate-800">
     <div class="aspect-w-3 aspect-h-2">
       <img class="h-full w-full object-cover object-center" src={post.data.image.src} alt={post.data.image.alt} loading="lazy">
@@ -12,7 +13,7 @@ const { post } = Astro.props;
         {post.data.title}
       </h2>
       <div class="mt-1 text-xs text-gray-400">
-        {post.data.publishedAt.toString().slice(0, 10)}
+        {format(post.data.publishedAt)}
       </div>
       <div class="mt-2 text-sm">
         {post.description}
