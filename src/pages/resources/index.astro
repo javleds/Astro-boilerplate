@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+
+import AppLayout from '@/layouts/app-layout.astro';
+import ResourceEntry from '@/components/reseource-entry.astro';
+
+import { config } from '@/utils/config';
+import { availableCollections } from '@/content/config';
+
+const { title, description} = config;
+
+const resources = (await getCollection(availableCollections.resources))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+<AppLayout head={{ title, description }}>
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">Random title here</h1>
+      <div class="mt-3 text-gray-200">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+  </div>
+  
+  <section class="flex flex-col gap-6">
+    {resources.map(entry => <ResourceEntry entry={entry} />)}
+  </section>
+  
+  <div class="mx-auto max-w-screen-lg px-3 py-6 invisible">
+    <div class="flex justify-center gap-8">
+      <a href="">
+        Older resources →
+      </a>
+    </div>
+  </div>
+</AppLayout>
