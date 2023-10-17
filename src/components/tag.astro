@@ -1,6 +1,6 @@
 ---
 import { randomBetween } from "@/utils/numbers";
-const { tag } = Astro.props;
+const { tag, href } = Astro.props;
 
 const tagColors = [
   ['bg-fuchsia-400', 'text-fuchsia-900'],
@@ -21,6 +21,6 @@ const tagClasses = [
 const classes = [...tagClasses, ...tagColors[randomBetween(0, tagColors.length - 1)]]
 ---
 
-<div class:list={classes}>
+<a href={href} class:list={classes}>
   { tag }
-</div>
+</a>
