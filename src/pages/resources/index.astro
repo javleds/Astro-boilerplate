@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import AppLayout from '@/layouts/app-layout.astro';
-import ResourceEntry from '@/components/reseource-entry.astro';
+import ResourceEntry from '@/components/resource-entry.astro';
 
 import { config } from '@/utils/config';
 import { availableCollections } from '@/content/config';
@@ -15,9 +15,9 @@ const resources = (await getCollection(availableCollections.resources))
 <AppLayout head={{ title, description }}>
   <div class="mx-auto max-w-screen-lg px-3 py-6">
     <div class="text-center">
-      <h1 class="text-3xl font-bold">Random title here</h1>
+      <h1 class="text-3xl font-bold">Recursos</h1>
       <div class="mt-3 text-gray-200">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        En este sección te compartiré los recursos web, cursos, blogs, etc que me han ayudado a lo largo de mi trayectoria.
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@ const resources = (await getCollection(availableCollections.resources))
   
   <div class="mx-auto max-w-screen-lg px-3 py-6 invisible">
     <div class="flex justify-center gap-8">
-      <a href="">
-        Older resources →
+      <a href="#">
+        Recursos antiguos →
       </a>
     </div>
   </div>
