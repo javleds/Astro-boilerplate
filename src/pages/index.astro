@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content'
 import AppLayout from '@/layouts/app-layout.astro';
 
 import Hero from '@/components/home/hero.astro';
-import Portfolio from '@/components/home/portfolio.astro';
+import ResourceCollection from '@/components/home/resource-collection.astro';
 import RecentPosts from '@/components/home/recent-posts.astro';
 import Newsletter from '@/components/newsletter.astro';
 
@@ -20,11 +20,16 @@ const posts = (await getCollection(availableCollections.blog))
 const projects = (await getCollection(availableCollections.projects))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 3);
+
+const resources = (await getCollection(availableCollections.resources))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
 ---
 
 <AppLayout head={{ title, description }}>
   <Hero />
-  <Portfolio projects={projects} />
+  <ResourceCollection title="Recent" titleHighlight="projects" entries={projects} />
+  <ResourceCollection title="Recent" titleHighlight="resources" entries={resources} />
   <RecentPosts posts={posts} />
   <Newsletter />
 </AppLayout>

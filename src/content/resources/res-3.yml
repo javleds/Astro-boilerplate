@@ -1,12 +1,11 @@
-title: Project 1
+title: Recurso 3
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero esse non molestias eos excepturi.
 publishedAt: 2020-02-05T00:00:00Z
 image:
-  src: '/assets/images/project-web-design.png'
-  alt: 'project-web-design.png'
+  src: '/assets/images/project-maps.png'
+  alt: 'project-maps.png'
 author: 'Javier Ledezma'
+link: '#'
 tags:
   - Astro.js
-  - Web design
-  - Tailwindcss
-  - TypeScript
+  - Blog

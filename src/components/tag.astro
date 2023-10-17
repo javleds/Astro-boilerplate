@@ -1,0 +1,26 @@
+---
+import { randomBetween } from "@/utils/numbers";
+const { tag } = Astro.props;
+
+const tagColors = [
+  ['bg-fuchsia-400', 'text-fuchsia-900'],
+  ['bg-lime-400', 'text-lime-900'],
+  ['bg-sky-400', 'text-sky-900'],
+  ['bg-rose-400', 'text-rose-900'],
+];
+
+const tagClasses = [
+  'rounded-md',
+  'px-2',
+  'py-1',
+  'text-xs',
+  'font-semibold',
+];
+
+
+const classes = [...tagClasses, ...tagColors[randomBetween(0, tagColors.length - 1)]]
+---
+
+<div class:list={classes}>
+  { tag }
+</div>

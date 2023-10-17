@@ -4,7 +4,6 @@ publishedAt: 2020-02-05T00:00:00Z
 image:
   src: '/assets/images/project-maps.png'
   alt: 'project-maps.png'
-slug: project-3
 author: 'Javier Ledezma'
 tags:
   - Astro.js

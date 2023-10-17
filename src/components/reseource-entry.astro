@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+
+import Tag from '@/components/tag.astro';
+
+const { entry } = Astro.props;
+---
+
+<article class="flex flex-col items-center gap-x-8 rounded-md bg-slate-800 p-3 md:flex-row hover:shadow-md hover:shadow-slate-950 hover:duration-75 transition-shadow">
+  <div class="shrink-0">
+    <a href={entry.data.link}>
+      <Image src={entry.data.image.src} alt={entry.data.image.alt} loading="lazy" width={90} height={90} />
+    </a>
+  </div>
+  <div>
+    <div class="flex flex-col items-center gap-y-2 md:flex-row">
+      <a class="hover:text-cyan-400" href={entry.data.link}>
+        <div class="text-xl font-semibold">
+          {entry.data.title}
+        </div>
+      </a>
+      <div class="ml-3 flex gap-2">
+        {entry.data.tags.map(tag => <Tag tag={tag} />)}
+      </div>
+    </div>
+    <p class="mt-3 text-gray-400">
+      {entry.data.description}
+    </p>
+    {entry.data.link && (
+      <a class="hover:text-cyan-400 underline mt-6 text-right" href={entry.data.link}>
+        visitar →
+      </a>
+    )}
+  </div>
+</article>
